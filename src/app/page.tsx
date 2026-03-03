@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   CheckCircle2,
@@ -114,91 +115,156 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center bg-[#09090f] overflow-hidden">
-        {/* Background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#22c55e]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-[#22c55e]/3 rounded-full blur-3xl" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:60px_60px] opacity-[0.04]" />
+      <section className="relative min-h-screen flex items-center bg-[#f7f7f5] overflow-hidden pt-20">
+        {/* Red accent bar top */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#e11d48]" />
+
+        {/* Background text decoration */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[20vw] font-black text-[#e11d48]/[0.04] leading-none select-none pointer-events-none tracking-tighter">
+          PHYSIO
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-          <div className="max-w-4xl">
-            {/* Tag */}
-            <div className="inline-flex items-center gap-2 bg-[#1a1a24] border border-[#22c55e]/20 rounded-full px-4 py-1.5 mb-8">
-              <div className="w-2 h-2 bg-[#22c55e] rounded-full animate-pulse" />
-              <span className="text-[#22c55e] text-xs font-medium tracking-wider uppercase">
-                Sportovní fyzioterapie · Praha
-              </span>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: copy */}
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white border border-[#e5e7eb] rounded-full px-4 py-1.5 mb-8 shadow-sm">
+                <div className="w-2 h-2 bg-[#e11d48] rounded-full" />
+                <span className="text-[#374151] text-xs font-medium tracking-wider uppercase">
+                  Sportovní fyzioterapie · Praha
+                </span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-[#0d0d0d] leading-[1.0] tracking-tight mb-6">
+                Vrátíme tě
+                <br />
+                zpět k tomu,
+                <br />
+                <span className="text-[#e11d48]">co miluješ.</span>
+              </h1>
+
+              <p className="text-[#374151] text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
+                Fyzioterapie, která léčí{" "}
+                <strong className="text-[#0d0d0d]">příčinu</strong> — ne jen
+                symptomy. Zkušenosti s profesionálními sportovci. Individuální
+                přístup bez zbytečných poplatků.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                <Link
+                  href="/kontakt"
+                  className="inline-flex items-center justify-center gap-2 bg-[#e11d48] text-white font-bold text-base px-8 py-4 rounded-sm hover:bg-[#9f1239] transition-colors group"
+                >
+                  Konzultace zdarma
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <a
+                  href="tel:+420603460433"
+                  className="inline-flex items-center justify-center gap-2 bg-white border border-[#e5e7eb] text-[#374151] font-medium text-base px-8 py-4 rounded-sm hover:border-[#0d0d0d] hover:text-[#0d0d0d] transition-colors shadow-sm"
+                >
+                  <Phone className="w-5 h-5" />
+                  +420 603 460 433
+                </a>
+              </div>
+
+              <div className="flex flex-wrap gap-5">
+                {[
+                  "Bez doporučení od lékaře",
+                  "Odpověď do 24 h",
+                  "Zkušenosti s pro-sportovci",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#e11d48] shrink-0" />
+                    <span className="text-[#374151] text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Main headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[1.0] tracking-tight mb-6">
-              Vrátíme tě
-              <br />
-              <span className="gradient-text">zpět k tomu,</span>
-              <br />
-              co miluješ.
-            </h1>
+            {/* Right: visual */}
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Main card */}
+                <div className="bg-white rounded-sm shadow-2xl shadow-black/10 p-8 max-w-sm w-full relative">
+                  {/* Red accent */}
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#e11d48] rounded-l-sm" />
 
-            <p className="text-[#6b7280] text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
-              Fyzioterapie, která léčí{" "}
-              <span className="text-white font-medium">příčinu</span> — ne jen
-              symptomy. Zkušenosti s profesionálními sportovci. Individuální
-              přístup bez zbytečných poplatků navíc.
-            </p>
+                  <div className="flex items-center gap-3 mb-6 pl-4">
+                    <Image
+                      src="/tomas-hybner.jpg"
+                      alt="Mgr. Tomáš Hybner"
+                      width={56}
+                      height={56}
+                      className="w-14 h-14 rounded-sm object-cover object-top"
+                    />
+                    <div>
+                      <div className="font-bold text-[#0d0d0d] text-sm">
+                        Mgr. Tomáš Hybner
+                      </div>
+                      <div className="text-[#9ca3af] text-xs">
+                        Fyzioterapeut, zakladatel
+                      </div>
+                    </div>
+                  </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center justify-center gap-2 bg-[#22c55e] text-black font-bold text-base px-8 py-4 rounded-sm hover:bg-[#4ade80] transition-all duration-200 group"
-              >
-                Konzultace zdarma
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <a
-                href="tel:+420603460433"
-                className="inline-flex items-center justify-center gap-2 border border-[#1f2937] text-[#e5e7eb] font-medium text-base px-8 py-4 rounded-sm hover:border-[#22c55e]/50 hover:text-[#22c55e] transition-all duration-200"
-              >
-                <Phone className="w-5 h-5" />
-                +420 603 460 433
-              </a>
-            </div>
+                  <blockquote className="pl-4 text-[#374151] text-sm leading-relaxed border-l-0 italic mb-6">
+                    &ldquo;Fyzioterapie má smysl jen tehdy, když tě naučí žít
+                    bez bolesti — ne jen přežívat od sezení k sezení.&rdquo;
+                  </blockquote>
 
-            {/* Trust signals */}
-            <div className="flex flex-wrap gap-6">
-              {[
-                "Bez doporučení od lékaře",
-                "Odpověď do 24 h",
-                "Zkušenosti s pro-sportovci",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#22c55e] shrink-0" />
-                  <span className="text-[#6b7280] text-sm">{item}</span>
+                  <div className="pl-4 space-y-3">
+                    {[
+                      "Individuální přístup, vše v ceně",
+                      "Léčba příčiny, ne symptomů",
+                      "Zkušenosti s pro sportovci",
+                    ].map((item) => (
+                      <div key={item} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-[#e11d48] rounded-full shrink-0" />
+                        <span className="text-[#374151] text-xs">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
+
+                {/* Floating badge */}
+                <div className="absolute -bottom-6 -left-6 bg-[#0d0d0d] text-white px-4 py-3 rounded-sm shadow-xl">
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-0.5">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star
+                          key={i}
+                          className="w-3 h-3 fill-[#e11d48] text-[#e11d48]"
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm font-bold">5.0</span>
+                  </div>
+                  <div className="text-[#9ca3af] text-xs mt-0.5">
+                    Spokojenost klientů
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[#6b7280]">
+        {/* Scroll hint */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[#9ca3af]">
           <span className="text-xs tracking-widest uppercase">Scroll</span>
           <ChevronDown className="w-4 h-4 animate-bounce" />
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-[#111118] border-y border-[#1f2937] py-12">
+      {/* Stats bar */}
+      <section className="bg-[#0d0d0d] py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-black text-[#22c55e] mb-1">
+                <div className="text-3xl md:text-4xl font-black text-[#e11d48] mb-1">
                   {stat.value}
                 </div>
-                <div className="text-[#6b7280] text-sm">{stat.label}</div>
+                <div className="text-[#9ca3af] text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -206,25 +272,23 @@ export default function HomePage() {
       </section>
 
       {/* Why us */}
-      <section className="py-20 md:py-28 bg-[#09090f]">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div>
-              <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-4">
+              <div className="inline-block bg-[#e11d48]/10 text-[#e11d48] text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-6">
                 Proč právě my
               </div>
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6">
+              <h2 className="text-4xl md:text-5xl font-black text-[#0d0d0d] leading-tight mb-6">
                 Fyzioterapie bez
                 <br />
-                <span className="gradient-text">zbytečného BS.</span>
+                <span className="em-underline">zbytečného BS.</span>
               </h2>
-              <p className="text-[#6b7280] text-lg leading-relaxed mb-8">
-                Víme, jak frustrující je platit za terapii, která řeší jen
-                příznak — a za pár týdnů se bolest vrátí. My to děláme jinak.
-                Skutečná ruční práce, hledání příčiny a plán, který funguje i
-                doma.
+              <p className="text-[#374151] text-lg leading-relaxed mb-8">
+                Víme, jak frustrující je platit za terapii, která řeší jen příznak
+                — a za pár týdnů se bolest vrátí. My to děláme jinak.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {[
                   {
                     title: "Individuální přístup",
@@ -236,18 +300,18 @@ export default function HomePage() {
                   },
                   {
                     title: "Léčba příčiny, ne symptomů",
-                    desc: "Nenechame tě chodit na sezení donekonečna. Naším cílem je, aby sis poradil/a sám/a.",
+                    desc: "Naším cílem je, aby sis poradil/a sám/a — ne chodit k nám věčně.",
                   },
-                ].map((item) => (
+                ].map((item, i) => (
                   <div key={item.title} className="flex gap-4">
-                    <div className="w-6 h-6 rounded-sm bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center shrink-0 mt-0.5">
-                      <div className="w-2 h-2 bg-[#22c55e] rounded-full" />
+                    <div className="w-7 h-7 bg-[#e11d48] text-white flex items-center justify-center text-xs font-black shrink-0 mt-0.5 rounded-sm">
+                      {String(i + 1).padStart(2, "0")}
                     </div>
                     <div>
-                      <div className="text-white font-semibold mb-1">
+                      <div className="text-[#0d0d0d] font-bold mb-1">
                         {item.title}
                       </div>
-                      <div className="text-[#6b7280] text-sm leading-relaxed">
+                      <div className="text-[#374151] text-sm leading-relaxed">
                         {item.desc}
                       </div>
                     </div>
@@ -256,72 +320,76 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Visual card */}
+            {/* Visual */}
             <div className="relative">
-              <div className="bg-[#111118] border border-[#1f2937] rounded-sm p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#22c55e]/5 rounded-full blur-2xl" />
-                <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-6">
-                  Mgr. Tomáš Hybner
-                </div>
-                <blockquote className="text-white text-xl font-semibold leading-relaxed mb-6">
-                  &ldquo;Fyzioterapie má smysl jen tehdy, když tě naučí žít
-                  bez bolesti — ne jen přežívat od sezení k sezení.&rdquo;
-                </blockquote>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-sm bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center">
-                    <span className="text-[#22c55e] font-bold text-sm">TH</span>
+              <div className="bg-[#f7f7f5] rounded-sm p-8 md:p-10 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-[#e11d48] opacity-5 rounded-bl-full" />
+                <Image
+                  src="/tomas-hybner.jpg"
+                  alt="Mgr. Tomáš Hybner"
+                  width={400}
+                  height={470}
+                  className="w-full max-w-xs mx-auto rounded-sm object-cover object-top mb-6"
+                />
+                <div className="border-l-4 border-[#e11d48] pl-4">
+                  <p className="text-[#374151] italic text-sm leading-relaxed mb-3">
+                    &ldquo;Nenechám tě chodit na sezení donekonečna. Chci, aby
+                    sis poradil/a sám/a.&rdquo;
+                  </p>
+                  <div className="text-[#0d0d0d] font-bold text-sm">
+                    Mgr. Tomáš Hybner
                   </div>
-                  <div>
-                    <div className="text-white font-medium text-sm">
-                      Mgr. Tomáš Hybner
-                    </div>
-                    <div className="text-[#6b7280] text-xs">
-                      Zakladatel, fyzioterapeut
-                    </div>
+                  <div className="text-[#9ca3af] text-xs">
+                    Zakladatel, fyzioterapeut
                   </div>
                 </div>
               </div>
-              {/* Accent corner */}
-              <div className="absolute -bottom-px -right-px w-16 h-16 bg-[#22c55e] rounded-tl-2xl opacity-10" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Services */}
-      <section className="py-20 md:py-28 bg-[#111118]">
+      <section className="py-20 md:py-28 bg-[#f7f7f5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-4">
-              Co nabízíme
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+            <div>
+              <div className="inline-block bg-[#e11d48]/10 text-[#e11d48] text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+                Co nabízíme
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-[#0d0d0d] leading-tight">
+                Služby, které
+                <br />
+                skutečně fungují.
+              </h2>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4">
-              Služby, které{" "}
-              <span className="gradient-text">skutečně fungují</span>
-            </h2>
-            <p className="text-[#6b7280] text-lg">
-              Každá metoda má svůj důvod. Vybíráme to nejefektivnější pro tvůj
-              konkrétní problém.
-            </p>
+            <Link
+              href="/sluzby"
+              className="inline-flex items-center gap-2 text-[#374151] font-medium text-sm border-b border-[#374151] pb-0.5 hover:text-[#e11d48] hover:border-[#e11d48] transition-colors self-start md:self-auto"
+            >
+              Všechny služby <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e5e7eb]">
             {services.map((service) => {
               const Icon = service.icon;
               return (
                 <Link
                   key={service.title}
                   href={service.href}
-                  className="group bg-[#09090f] border border-[#1f2937] rounded-sm p-6 hover:border-[#22c55e]/40 transition-all duration-200 hover:bg-[#09090f]/80"
+                  className="group bg-white p-8 hover:bg-[#e11d48] transition-colors duration-200"
                 >
-                  <div className="w-10 h-10 rounded-sm bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mb-4 group-hover:bg-[#22c55e]/20 transition-colors">
-                    <Icon className="w-5 h-5 text-[#22c55e]" />
+                  <div className="w-10 h-10 bg-[#f7f7f5] group-hover:bg-white/20 flex items-center justify-center mb-5 transition-colors">
+                    <Icon className="w-5 h-5 text-[#e11d48] group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-white font-bold mb-2">{service.title}</h3>
-                  <p className="text-[#6b7280] text-sm leading-relaxed mb-4">
+                  <h3 className="text-[#0d0d0d] group-hover:text-white font-bold mb-2 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-[#374151] group-hover:text-white/80 text-sm leading-relaxed mb-5 transition-colors">
                     {service.desc}
                   </p>
-                  <div className="flex items-center gap-1 text-[#22c55e] text-sm font-medium">
+                  <div className="flex items-center gap-1 text-[#e11d48] group-hover:text-white text-sm font-medium transition-colors">
                     Více info{" "}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -329,95 +397,80 @@ export default function HomePage() {
               );
             })}
           </div>
-
-          <div className="text-center mt-10">
-            <Link
-              href="/sluzby"
-              className="inline-flex items-center gap-2 border border-[#22c55e]/30 text-[#22c55e] font-medium px-8 py-3 rounded-sm hover:bg-[#22c55e]/5 transition-all"
-            >
-              Všechny služby <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* Process */}
-      <section className="py-20 md:py-28 bg-[#09090f]">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-4">
-              Jak to funguje
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
-              3 kroky od bolesti
-              <br />
-              <span className="gradient-text">k pohybu</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 relative">
-            {/* Connector line */}
-            <div className="hidden md:block absolute top-8 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-[#22c55e]/30 to-transparent" />
-
-            {[
-              {
-                step: "01",
-                title: "Vyplníš formulář",
-                desc: "Stačí pár řádků — napiš nám, co tě trápí. Žádná dlouhá administrativa.",
-              },
-              {
-                step: "02",
-                title: "Do 24h se ozveme",
-                desc: "Zavoláme ti, probereme tvůj problém a domluvíme termín, který ti vyhovuje.",
-              },
-              {
-                step: "03",
-                title: "Konzultace zdarma",
-                desc: "Na prvním sezení diagnostikujeme příčinu a nastavíme plán léčby šitý na míru.",
-              },
-            ].map((step, i) => (
-              <div
-                key={step.step}
-                className="relative bg-[#111118] border border-[#1f2937] rounded-sm p-8"
-              >
-                <div className="text-[#22c55e] text-5xl font-black opacity-20 mb-4 leading-none">
-                  {step.step}
-                </div>
-                <h3 className="text-white font-bold text-lg mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-[#6b7280] text-sm leading-relaxed">
-                  {step.desc}
-                </p>
-                {i < 2 && (
-                  <div className="hidden md:block absolute -right-3 top-8 w-6 h-6 border-t border-r border-[#22c55e]/30 rotate-45" />
-                )}
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div>
+              <div className="inline-block bg-[#e11d48]/10 text-[#e11d48] text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-6">
+                Jak to funguje
               </div>
-            ))}
-          </div>
+              <h2 className="text-4xl md:text-5xl font-black text-[#0d0d0d] leading-tight mb-10">
+                3 kroky od bolesti
+                <br />
+                k pohybu.
+              </h2>
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center gap-2 bg-[#e11d48] text-white font-bold text-base px-8 py-4 rounded-sm hover:bg-[#9f1239] transition-colors group"
+              >
+                Začít teď — zdarma
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
-          <div className="text-center mt-10">
-            <Link
-              href="/kontakt"
-              className="inline-flex items-center gap-2 bg-[#22c55e] text-black font-bold text-base px-8 py-4 rounded-sm hover:bg-[#4ade80] transition-all group"
-            >
-              Začít teď — zdarma
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="space-y-4">
+              {[
+                {
+                  step: "01",
+                  title: "Vyplníš formulář",
+                  desc: "Stačí pár řádků — napiš nám, co tě trápí.",
+                },
+                {
+                  step: "02",
+                  title: "Do 24 h se ozveme",
+                  desc: "Zavoláme ti a domluvíme termín, který ti vyhovuje.",
+                },
+                {
+                  step: "03",
+                  title: "Konzultace zdarma",
+                  desc: "Diagnostikujeme příčinu a nastavíme plán léčby šitý na míru.",
+                },
+              ].map((step) => (
+                <div
+                  key={step.step}
+                  className="flex gap-6 bg-[#f7f7f5] p-6 rounded-sm border-l-4 border-[#e11d48]"
+                >
+                  <div className="text-[#e11d48] text-3xl font-black leading-none shrink-0 mt-1">
+                    {step.step}
+                  </div>
+                  <div>
+                    <h3 className="text-[#0d0d0d] font-bold mb-1">
+                      {step.title}
+                    </h3>
+                    <p className="text-[#374151] text-sm leading-relaxed">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 md:py-28 bg-[#111118]">
+      <section className="py-20 md:py-28 bg-[#0d0d0d]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-block bg-[#e11d48]/20 text-[#e11d48] text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
               Co říkají klienti
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
-              Výsledky, které{" "}
-              <span className="gradient-text">mluví za sebe</span>
+              Výsledky, které mluví za sebe.
             </h2>
           </div>
 
@@ -425,29 +478,27 @@ export default function HomePage() {
             {testimonials.map((t) => (
               <div
                 key={t.name}
-                className="bg-[#09090f] border border-[#1f2937] rounded-sm p-6 flex flex-col"
+                className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-sm p-6 flex flex-col"
               >
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-5">
                   {Array.from({ length: t.stars }).map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 fill-[#22c55e] text-[#22c55e]"
+                      className="w-4 h-4 fill-[#e11d48] text-[#e11d48]"
                     />
                   ))}
                 </div>
-                <p className="text-[#e5e7eb] text-sm leading-relaxed flex-1 mb-6">
+                <p className="text-[#d1d5db] text-sm leading-relaxed flex-1 mb-6">
                   &ldquo;{t.text}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-[#1f2937]">
-                  <div className="w-8 h-8 rounded-sm bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center">
-                    <span className="text-[#22c55e] font-bold text-xs">
+                <div className="flex items-center gap-3 pt-4 border-t border-[#2a2a2a]">
+                  <div className="w-8 h-8 bg-[#e11d48] flex items-center justify-center rounded-sm shrink-0">
+                    <span className="text-white font-bold text-xs">
                       {t.name[0]}
                     </span>
                   </div>
                   <div>
-                    <div className="text-white font-medium text-sm">
-                      {t.name}
-                    </div>
+                    <div className="text-white font-medium text-sm">{t.name}</div>
                     <div className="text-[#6b7280] text-xs">{t.date}</div>
                   </div>
                 </div>
@@ -458,30 +509,30 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 md:py-28 bg-[#09090f]">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-4">
+          <div className="text-center mb-14">
+            <div className="inline-block bg-[#e11d48]/10 text-[#e11d48] text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
               Časté otázky
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl font-black text-[#0d0d0d] leading-tight">
               Máš otázky?
               <br />
-              <span className="gradient-text">Máme odpovědi.</span>
+              Máme odpovědi.
             </h2>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2">
             {faqs.map((faq) => (
               <details
                 key={faq.q}
-                className="group bg-[#111118] border border-[#1f2937] rounded-sm overflow-hidden"
+                className="group bg-[#f7f7f5] border border-[#e5e7eb] rounded-sm overflow-hidden"
               >
-                <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none hover:bg-[#1a1a24] transition-colors">
-                  <span className="text-white font-semibold">{faq.q}</span>
-                  <ChevronDown className="w-5 h-5 text-[#22c55e] shrink-0 group-open:rotate-180 transition-transform" />
+                <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none hover:bg-[#f0efed] transition-colors">
+                  <span className="text-[#0d0d0d] font-semibold">{faq.q}</span>
+                  <ChevronDown className="w-5 h-5 text-[#e11d48] shrink-0 group-open:rotate-180 transition-transform" />
                 </summary>
-                <div className="px-6 pb-6 pt-0 text-[#6b7280] text-sm leading-relaxed border-t border-[#1f2937]">
+                <div className="px-6 pb-6 text-[#374151] text-sm leading-relaxed border-t border-[#e5e7eb]">
                   <div className="pt-4">{faq.a}</div>
                 </div>
               </details>
@@ -490,35 +541,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20 md:py-28 bg-[#111118] relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#22c55e]/8 rounded-full blur-3xl" />
+      {/* CTA */}
+      <section className="py-20 md:py-28 bg-[#e11d48] relative overflow-hidden">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[18vw] font-black text-white/5 leading-none select-none pointer-events-none">
+          GO
         </div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-6">
-            Začni dnes
-          </div>
           <h2 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
-            První krok je
-            <br />
-            <span className="gradient-text">zdarma.</span>
+            První krok je zdarma.
           </h2>
-          <p className="text-[#6b7280] text-lg max-w-xl mx-auto mb-10">
+          <p className="text-white/80 text-lg max-w-xl mx-auto mb-10">
             Zavolej nebo vyplň formulář. Do 24 hodin se ti ozveme a probereme,
             jak ti nejlépe pomůžeme.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center gap-2 bg-[#22c55e] text-black font-bold text-base px-8 py-4 rounded-sm hover:bg-[#4ade80] transition-all group"
+              className="inline-flex items-center justify-center gap-2 bg-white text-[#e11d48] font-bold text-base px-8 py-4 rounded-sm hover:bg-[#f0efed] transition-colors group"
             >
               Vyplnit formulář
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href="tel:+420603460433"
-              className="inline-flex items-center justify-center gap-2 border border-[#1f2937] text-[#e5e7eb] font-medium text-base px-8 py-4 rounded-sm hover:border-[#22c55e]/50 hover:text-[#22c55e] transition-all"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-medium text-base px-8 py-4 rounded-sm hover:bg-white/10 transition-colors"
             >
               <Phone className="w-5 h-5" />
               Zavolat přímo

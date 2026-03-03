@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Heart, Target, Zap, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "O nás | Mgr. Tomáš Hybner — Elite Movement Physio Praha",
   description:
     "Mgr. Tomáš Hybner — fyzioterapeut se zkušenostmi z práce s profesionálními sportovci. Poznaj tým Elite Movement a filozofii fyzioterapie, která léčí příčinu.",
-  keywords: [
-    "Tomáš Hybner fyzioterapeut Praha",
-    "Elite Movement fyzioterapie",
-    "sportovní fyzioterapeut Praha",
-    "fyzioterapeut se zkušenostmi sportovci",
-  ],
 };
 
 const values = [
@@ -46,7 +41,7 @@ const timeline = [
   {
     year: "Dnes",
     title: "Sportovní i běžní klienti",
-    desc: "Elite Movement dnes pomáhá jak vrcholovým sportovcům, tak lidem s bolestmi zad z práce u počítače. Přístup je vždy stejně důkladný.",
+    desc: "Elite Movement dnes pomáhá jak vrcholovým sportovcům, tak lidem s bolestmi zad z kancelářské práce. Přístup je vždy stejně důkladný.",
   },
 ];
 
@@ -54,24 +49,21 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-[#09090f] overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-[#22c55e]/5 rounded-full blur-3xl" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:60px_60px] opacity-[0.04]" />
-        </div>
+      <section className="relative pt-32 pb-20 bg-[#f7f7f5] overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#e11d48]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-4">
+            <div className="inline-block bg-[#e11d48]/10 text-[#e11d48] text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-6">
               O nás
             </div>
-            <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
-              Fyzioterapie bez
+            <h1 className="text-5xl md:text-6xl font-black text-[#0d0d0d] leading-tight mb-6">
+              Fyzioterapie, která
               <br />
-              <span className="gradient-text">zbytečného plýtvání</span>
+              <span className="text-[#e11d48]">neplýtvá</span>
               <br />
               tvým časem.
             </h1>
-            <p className="text-[#6b7280] text-lg leading-relaxed max-w-xl">
+            <p className="text-[#374151] text-lg leading-relaxed max-w-xl">
               Věříme, že fyzioterapie má smysl jen tehdy, když skutečně řeší
               problém — ne jen dočasně tlumí bolest a žije ze tvých pravidelných
               návštěv.
@@ -81,50 +73,51 @@ export default function AboutPage() {
       </section>
 
       {/* Tomáš Hybner */}
-      <section className="py-20 bg-[#111118] border-y border-[#1f2937]">
+      <section className="py-20 bg-white border-y border-[#e5e7eb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-            {/* Photo placeholder */}
+            {/* Photo */}
             <div className="relative order-2 md:order-1">
-              <div className="bg-[#09090f] border border-[#1f2937] rounded-sm aspect-[4/5] max-w-sm mx-auto flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#22c55e]/5 to-transparent" />
-                <div className="text-center relative">
-                  <div className="w-20 h-20 rounded-sm bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-[#22c55e] font-black text-2xl">
-                      TH
-                    </span>
+              <div className="relative max-w-sm mx-auto">
+                <div className="absolute -top-4 -left-4 w-full h-full bg-[#e11d48]/10 rounded-sm" />
+                <Image
+                  src="/tomas-hybner.jpg"
+                  alt="Mgr. Tomáš Hybner — fyzioterapeut"
+                  width={400}
+                  height={470}
+                  className="relative w-full rounded-sm object-cover object-top shadow-lg"
+                />
+                {/* Badge */}
+                <div className="absolute -bottom-4 -right-4 bg-[#0d0d0d] text-white px-4 py-3 rounded-sm shadow-xl">
+                  <div className="text-[#e11d48] text-xs font-bold uppercase tracking-wider">
+                    Zakladatel
                   </div>
-                  <div className="text-[#6b7280] text-sm">Mgr. Tomáš Hybner</div>
-                  <div className="text-[#22c55e] text-xs mt-1">Fyzioterapeut</div>
+                  <div className="text-white font-bold text-sm">
+                    Mgr. Tomáš Hybner
+                  </div>
+                  <div className="text-[#9ca3af] text-xs">Fyzioterapeut</div>
                 </div>
-                {/* Green corner accent */}
-                <div className="absolute bottom-0 right-0 w-16 h-16 bg-[#22c55e] opacity-5" />
-                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#22c55e]/30" />
-                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#22c55e]/30" />
               </div>
             </div>
 
             {/* Content */}
             <div className="order-1 md:order-2">
-              <div className="inline-flex items-center gap-2 bg-[#1a1a24] border border-[#22c55e]/20 rounded-full px-4 py-1.5 mb-6">
-                <span className="text-[#22c55e] text-xs font-medium">
-                  Mgr. Tomáš Hybner — Zakladatel & Fyzioterapeut
-                </span>
+              <div className="inline-block bg-[#e11d48]/10 text-[#e11d48] text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-6">
+                Kdo jsme
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-6">
+              <h2 className="text-3xl md:text-4xl font-black text-[#0d0d0d] leading-tight mb-6">
                 &ldquo;Dělám fyzioterapii, protože
-                <span className="gradient-text"> chci vidět výsledky</span>
+                <span className="text-[#e11d48]"> chci vidět výsledky</span>
                 &nbsp;— ne jen pacienty.&rdquo;
               </h2>
 
-              <div className="space-y-4 text-[#6b7280] leading-relaxed mb-8">
+              <div className="space-y-4 text-[#374151] leading-relaxed mb-8">
                 <p>
                   Tomáš Hybner vystudoval fyzioterapii (Mgr.) a od začátku se
                   zaměřil na sportovní rehabilitaci a manuální terapii. Práce s
                   profesionálními sportovci ho naučila, že výsledky musí
-                  přicházet rychle a musí být trvalé — v profesionálním sportu
-                  není čas na half-measures.
+                  přicházet rychle a musí být trvalé.
                 </p>
                 <p>
                   Elite Movement vznikl jako odpověď na frustraci s tím, jak
@@ -148,7 +141,7 @@ export default function AboutPage() {
                 ].map((tag) => (
                   <span
                     key={tag}
-                    className="bg-[#1a1a24] border border-[#1f2937] text-[#e5e7eb] text-xs px-3 py-1.5 rounded-sm"
+                    className="bg-[#f7f7f5] border border-[#e5e7eb] text-[#374151] text-xs px-3 py-1.5 rounded-sm font-medium"
                   >
                     {tag}
                   </span>
@@ -159,35 +152,38 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Philosophy / Values */}
-      <section className="py-20 md:py-28 bg-[#09090f]">
+      {/* Values */}
+      <section className="py-20 md:py-28 bg-[#f7f7f5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-block bg-[#e11d48]/10 text-[#e11d48] text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
               Naše filozofie
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl font-black text-[#0d0d0d] leading-tight">
               Tři principy,
               <br />
-              <span className="gradient-text">které nás definují</span>
+              které nás definují.
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {values.map((value) => {
+            {values.map((value, i) => {
               const Icon = value.icon;
               return (
                 <div
                   key={value.title}
-                  className="bg-[#111118] border border-[#1f2937] rounded-sm p-8"
+                  className="bg-white border border-[#e5e7eb] rounded-sm p-8 relative overflow-hidden"
                 >
-                  <div className="w-10 h-10 rounded-sm bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mb-6">
-                    <Icon className="w-5 h-5 text-[#22c55e]" />
+                  <div className="text-[#e11d48]/5 text-8xl font-black absolute -bottom-2 -right-2 leading-none">
+                    {String(i + 1).padStart(2, "0")}
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-3">
+                  <div className="w-10 h-10 bg-[#e11d48] flex items-center justify-center rounded-sm mb-6">
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-[#0d0d0d] font-bold text-lg mb-3">
                     {value.title}
                   </h3>
-                  <p className="text-[#6b7280] text-sm leading-relaxed">
+                  <p className="text-[#374151] text-sm leading-relaxed">
                     {value.desc}
                   </p>
                 </div>
@@ -197,40 +193,36 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story timeline */}
-      <section className="py-20 bg-[#111118] border-t border-[#1f2937]">
+      {/* Timeline */}
+      <section className="py-20 bg-white border-t border-[#e5e7eb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="text-[#22c55e] text-xs font-medium tracking-widest uppercase mb-4">
+            <div className="text-center mb-14">
+              <div className="inline-block bg-[#e11d48]/10 text-[#e11d48] text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
                 Náš příběh
               </div>
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+              <h2 className="text-4xl md:text-5xl font-black text-[#0d0d0d] leading-tight">
                 Jak vznikl
                 <br />
-                <span className="gradient-text">Elite Movement</span>
+                Elite Movement.
               </h2>
             </div>
 
             <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#22c55e]/50 via-[#22c55e]/20 to-transparent" />
-
-              <div className="space-y-10">
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-[#e5e7eb]" />
+              <div className="space-y-8">
                 {timeline.map((item) => (
                   <div key={item.title} className="flex gap-8">
-                    <div className="relative shrink-0">
-                      <div className="w-12 h-12 rounded-sm bg-[#09090f] border border-[#22c55e]/30 flex items-center justify-center">
-                        <span className="text-[#22c55e] font-bold text-xs">
-                          {item.year}
-                        </span>
-                      </div>
+                    <div className="w-12 h-12 bg-[#e11d48] flex items-center justify-center rounded-sm shrink-0 relative">
+                      <span className="text-white font-bold text-[10px] text-center leading-tight px-1">
+                        {item.year}
+                      </span>
                     </div>
-                    <div className="pt-2 pb-2">
-                      <h3 className="text-white font-bold text-lg mb-2">
+                    <div className="pt-2 pb-6">
+                      <h3 className="text-[#0d0d0d] font-bold text-lg mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-[#6b7280] text-sm leading-relaxed">
+                      <p className="text-[#374151] text-sm leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -243,29 +235,29 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 bg-[#09090f] relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#22c55e]/6 rounded-full blur-3xl" />
+      <section className="py-20 md:py-28 bg-[#e11d48] relative overflow-hidden">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[18vw] font-black text-white/5 leading-none select-none pointer-events-none">
+          START
+        </div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            Pojďme pracovat
-            <br />
-            <span className="gradient-text">společně.</span>
+            Pojďme pracovat společně.
           </h2>
-          <p className="text-[#6b7280] text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto">
             Konzultace zdarma. Žádné závazky. Jen upřímný rozhovor o tom, jak
             ti pomůžeme.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center gap-2 bg-[#22c55e] text-black font-bold text-base px-8 py-4 rounded-sm hover:bg-[#4ade80] transition-all group"
+              className="inline-flex items-center justify-center gap-2 bg-white text-[#e11d48] font-bold text-base px-8 py-4 rounded-sm hover:bg-[#f0efed] transition-colors group"
             >
               Domluvit konzultaci
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href="tel:+420603460433"
-              className="inline-flex items-center justify-center gap-2 border border-[#1f2937] text-[#e5e7eb] font-medium text-base px-8 py-4 rounded-sm hover:border-[#22c55e]/50 hover:text-[#22c55e] transition-all"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-medium text-base px-8 py-4 rounded-sm hover:bg-white/10 transition-colors"
             >
               <Phone className="w-5 h-5" />
               +420 603 460 433
