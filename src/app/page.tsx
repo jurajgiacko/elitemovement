@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "8+", label: "let zkušeností" },
-  { value: "500+", label: "spokojených pacientů" },
-  { value: "Pro", label: "sportovní zázemí" },
+  { value: "4", label: "členný tým" },
+  { value: "6+", label: "profesionálních klubů" },
+  { value: "2020", label: "rok vzniku" },
   { value: "100%", label: "individuální přístup" },
 ];
 
@@ -142,12 +142,19 @@ export default function HomePage() {
                 <span className="text-[#e11d48]">co miluješ.</span>
               </h1>
 
-              <p className="text-[#374151] text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
+              <p className="text-[#374151] text-lg md:text-xl max-w-xl mb-6 leading-relaxed">
                 Fyzioterapie, která léčí{" "}
                 <strong className="text-[#0d0d0d]">příčinu</strong> — ne jen
-                symptomy. Zkušenosti s profesionálními sportovci. Individuální
-                přístup bez zbytečných poplatků.
+                symptomy. Tým fyzioterapeutů s praxí u české reprezentace,
+                FC Slovan Liberec a HC Slavia Praha.
               </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["🇨🇿 Česká fotbalová rep.", "FC Slovan Liberec", "HC Slavia Praha"].map((club) => (
+                  <span key={club} className="bg-white border border-[#e5e7eb] text-[#374151] text-xs font-medium px-3 py-1.5 rounded-full shadow-sm">
+                    {club}
+                  </span>
+                ))}
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <Link
@@ -202,17 +209,18 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <blockquote className="pl-4 text-[#374151] text-sm leading-relaxed border-l-0 italic mb-6">
-                    &ldquo;Fyzioterapie má smysl jen tehdy, když tě naučí žít
-                    bez bolesti — ne jen přežívat od sezení k sezení.&rdquo;
-                  </blockquote>
+                <blockquote className="pl-4 text-[#374151] text-sm leading-relaxed border-l-0 italic mb-6">
+                  &ldquo;Jako fyzioterapeut mám blíže ke svým klientům a více
+                  času na pochopení jejich problémů, které dokážu efektivně
+                  léčit.&rdquo;
+                </blockquote>
 
-                  <div className="pl-4 space-y-3">
-                    {[
-                      "Individuální přístup, vše v ceně",
-                      "Léčba příčiny, ne symptomů",
-                      "Zkušenosti s pro sportovci",
-                    ].map((item) => (
+                <div className="pl-4 space-y-3">
+                  {[
+                    "Česká fotbalová reprezentace U21",
+                    "FC Slovan Liberec & HC Slavia Praha",
+                    "Léčba příčiny — vše v ceně terapie",
+                  ].map((item) => (
                       <div key={item} className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-[#e11d48] rounded-full shrink-0" />
                         <span className="text-[#374151] text-xs">{item}</span>
