@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 
@@ -39,15 +38,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Elite Movement Physio"
-              width={120}
-              height={57}
-              className="h-10 md:h-12 w-auto object-contain"
-              priority
-            />
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-9 h-9 bg-[#e11d48] flex items-center justify-center rounded-sm font-black text-white text-sm shrink-0">
+              EM
+            </div>
+            <div>
+              <div className="font-black text-[#0d0d0d] text-base leading-tight tracking-tight">
+                Elite Movement
+              </div>
+              <div className="text-[#e11d48] text-[10px] font-semibold tracking-widest uppercase leading-tight">
+                Physio · Praha
+              </div>
+            </div>
           </Link>
 
           {/* Desktop nav */}

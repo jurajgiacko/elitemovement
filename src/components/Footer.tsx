@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Phone, Mail, Instagram } from "lucide-react";
 
 export default function Footer() {
@@ -9,13 +8,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
           {/* Brand */}
           <div>
-            <Image
-              src="/logo.png"
-              alt="Elite Movement Physio"
-              width={140}
-              height={66}
-              className="h-12 w-auto object-contain mb-5 brightness-0 invert"
-            />
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-9 h-9 bg-[#e11d48] flex items-center justify-center rounded-sm font-black text-white text-sm shrink-0">
+                EM
+              </div>
+              <div>
+                <div className="font-black text-white text-base leading-tight tracking-tight">
+                  Elite Movement
+                </div>
+                <div className="text-[#e11d48] text-[10px] font-semibold tracking-widest uppercase leading-tight">
+                  Physio · Praha
+                </div>
+              </div>
+            </div>
             <p className="text-[#9ca3af] text-sm leading-relaxed max-w-xs">
               Sportovní fyzioterapie s přístupem, který léčí příčinu — ne jen
               symptomy. Zkušenosti s profesionálními sportovci.

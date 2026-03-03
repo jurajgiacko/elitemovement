@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Heart, Target, Zap, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -76,17 +75,16 @@ export default function AboutPage() {
       <section className="py-20 bg-white border-y border-[#e5e7eb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-            {/* Photo */}
+            {/* Photo placeholder */}
             <div className="relative order-2 md:order-1">
               <div className="relative max-w-sm mx-auto">
                 <div className="absolute -top-4 -left-4 w-full h-full bg-[#e11d48]/10 rounded-sm" />
-                <Image
-                  src="/tomas-hybner.jpg"
-                  alt="Mgr. Tomáš Hybner — fyzioterapeut"
-                  width={400}
-                  height={470}
-                  className="relative w-full rounded-sm object-cover object-top shadow-lg"
-                />
+                <div className="relative w-full aspect-[4/5] bg-[#e5e7eb] rounded-sm flex flex-col items-center justify-center gap-3">
+                  <div className="w-20 h-20 rounded-full bg-[#d1d5db] flex items-center justify-center">
+                    <span className="text-[#9ca3af] font-black text-2xl">TH</span>
+                  </div>
+                  <span className="text-[#9ca3af] text-xs uppercase tracking-wider">Foto — připravujeme</span>
+                </div>
                 {/* Badge */}
                 <div className="absolute -bottom-4 -right-4 bg-[#0d0d0d] text-white px-4 py-3 rounded-sm shadow-xl">
                   <div className="text-[#e11d48] text-xs font-bold uppercase tracking-wider">

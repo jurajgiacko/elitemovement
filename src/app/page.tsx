@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowRight,
   CheckCircle2,
@@ -190,13 +189,9 @@ export default function HomePage() {
                   <div className="absolute top-0 left-0 w-1 h-full bg-[#e11d48] rounded-l-sm" />
 
                   <div className="flex items-center gap-3 mb-6 pl-4">
-                    <Image
-                      src="/tomas-hybner.jpg"
-                      alt="Mgr. Tomáš Hybner"
-                      width={56}
-                      height={56}
-                      className="w-14 h-14 rounded-sm object-cover object-top"
-                    />
+                    <div className="w-14 h-14 rounded-sm bg-[#e5e7eb] flex items-center justify-center shrink-0">
+                      <span className="text-[#9ca3af] font-black text-lg">TH</span>
+                    </div>
                     <div>
                       <div className="font-bold text-[#0d0d0d] text-sm">
                         Mgr. Tomáš Hybner
@@ -324,13 +319,9 @@ export default function HomePage() {
             <div className="relative">
               <div className="bg-[#f7f7f5] rounded-sm p-8 md:p-10 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-[#e11d48] opacity-5 rounded-bl-full" />
-                <Image
-                  src="/tomas-hybner.jpg"
-                  alt="Mgr. Tomáš Hybner"
-                  width={400}
-                  height={470}
-                  className="w-full max-w-xs mx-auto rounded-sm object-cover object-top mb-6"
-                />
+                <div className="w-full max-w-xs mx-auto aspect-[4/5] bg-[#e5e7eb] rounded-sm flex items-center justify-center mb-6">
+                  <span className="text-[#9ca3af] font-black text-4xl">TH</span>
+                </div>
                 <div className="border-l-4 border-[#e11d48] pl-4">
                   <p className="text-[#374151] italic text-sm leading-relaxed mb-3">
                     &ldquo;Nenechám tě chodit na sezení donekonečna. Chci, aby
